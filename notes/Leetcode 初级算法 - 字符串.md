@@ -298,7 +298,7 @@ public static String countAndSay(int n) {
 
 也可以直接建立trie树 然后找分叉点
 
-```
+```java
 public static String longestCommonPrefix(String[] strs) {
     if(strs.length==0){
         return "";

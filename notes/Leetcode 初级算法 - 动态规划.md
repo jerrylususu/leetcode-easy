@@ -1,4 +1,4 @@
-# Leetcode 初级算法 - 链表
+# Leetcode 初级算法 - 动态规划
 
 二级标题格式：\[章节内题号\] \[题库内题号\] \[题目标题\]
 
@@ -206,7 +206,7 @@ public int maxSubArray(int[] nums) {
 最终的解决：
 
 ```java
-ublic int rob(int[] nums) {
+public int rob(int[] nums) {
     if(nums==null||nums.length==0) return 0;
     if(nums.length==1) return nums[0];
     if(nums.length==2) return Math.max(nums[0],nums[1]);
@@ -224,7 +224,7 @@ ublic int rob(int[] nums) {
 
 其他人的解答
 
-```
+```java
 // source: https://leetcode.com/problems/house-robber/discuss/156523/From-good-to-great.-How-to-approach-most-of-DP-problems.
 
 public int rob(int[] nums) {
