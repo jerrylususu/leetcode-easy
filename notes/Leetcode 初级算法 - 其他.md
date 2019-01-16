@@ -143,7 +143,7 @@ public static void swap(char[] arr, int a, int b){
 
 其他思路：位操作还是可以实现的 直接把sum逐次左移 n逐次右移
 
-```
+```java
 public int reverseBits(int n) {
     int sum=0;
     for(int i=0;i<32;i++){
@@ -171,6 +171,63 @@ public int reverseBits(int n) {
     return n;
 }
 ```
+
+
+
+## 4 118 帕斯卡三角形
+
+我的思路：基本的二重循环 需要注意下循环条件...
+
+```java
+public List<List<Integer>> generate(int numRows) {
+    List<List<Integer>> l = new ArrayList<>();
+    for(int i=1;i<=numRows;i++){
+        List<Integer> li = new ArrayList<>();
+        if(i==1) li.add(1);
+        else {
+            li.add(1);
+            for(int j=0;j<i-2;j++){
+                li.add(l.get(i-2).get(j)+l.get(i-2).get(j+1));
+            }
+            li.add(1);
+        }
+        l.add(li);
+    }
+    return l;
+}
+```
+
+其他思路：基本都差不多...
+
+
+
+## 5 20 有效的括号
+
+我的思路：栈例题... 直接一个栈就好了... （需要注意下栈为空的情况）
+
+```java
+public boolean isValid(String str) {
+    Stack<Character> s = new Stack<>();
+    char[] carr = str.toCharArray();
+    for(char c:carr){
+        switch(c){
+            case '(': s.push('('); break;
+            case '{': s.push('{'); break;
+            case '[': s.push('['); break;
+            case ')': if(s.isEmpty()||s.pop()!='(') return false; else break;
+            case '}': if(s.isEmpty()||s.pop()!='{') return false; else break;
+            case ']': if(s.isEmpty()||s.pop()!='[') return false; else break; 
+        }
+    }
+    return s.isEmpty();
+}
+```
+
+其他思路：用一个map来存储括号之间的对应关系 key,value=右括号 左括号 [来源](https://leetcode.com/problems/valid-parentheses/solution/)
+
+在每次走到一个新字符 如果能在map中找到 说明是右括号 检查栈顶 如果找不到 说明是左括号 假如栈
+
+如果栈为空 可以用一个dummy来对比
 
 
 
